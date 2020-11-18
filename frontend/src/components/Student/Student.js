@@ -7,7 +7,7 @@ const Student = () => {
   let socket;
   const ENDPOINT =
     process.env.NODE_ENV === 'production'
-      ? 'https://lama-project.herokuapp.com'
+      ? 'https://lamas-project.herokuapp.com'
       : 'localhost:8000';
   const emojis = useContext(AppContext);
 
