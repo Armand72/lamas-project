@@ -16,9 +16,8 @@ const getUserCount = () => {
   return users.length;
 };
 
-const getIncrement = (name, id, category) => {
+const IncrementEmojis = (name, id, category) => {
   const currentUser = users.findIndex((user) => user.socketId === id);
-  const userCounter = users.length;
 
   if (category === 'Emotion' && users[currentUser].mood !== name) {
     moodCounter[users[currentUser].mood]--;
@@ -31,11 +30,11 @@ const getIncrement = (name, id, category) => {
       moodCounter[name]++;
     }
   }
-
-  return {
-    moodCounter,
-  };
 };
+
+const getMoodCounter = () => {
+  return {moodCounter}
+}
 
 const removeUser = (id) => {
   const index = users.findIndex((user) => user.socketId === id);
@@ -48,7 +47,8 @@ const removeUser = (id) => {
 
 module.exports = {
   addUser,
-  getIncrement,
+  IncrementEmojis,
   removeUser,
   getUserCount,
+  getMoodCounter,
 };
